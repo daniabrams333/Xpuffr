@@ -6,12 +6,20 @@
 //
 
 import SwiftUI
+import HealthKit
 
 @main
 struct Xpuffr_Watch_AppApp: App {
+    
+    @StateObject var xPuffrModel = xPufferViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                SmokingView()
+                    .environmentObject(xPuffrModel)
+            }
+           
         }
     }
 }
